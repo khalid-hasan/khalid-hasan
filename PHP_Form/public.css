@@ -1,0 +1,23 @@
+.form-control 
+{
+    width: 50%;
+}
+
+.bootstrap-select:not([class*="col-"]):not([class*="form-control"]):not(.input-group-btn) 
+{
+
+    width: 200px;
+
+}
+
+.panel-default 
+{
+    margin: 50px auto;
+    width: 60%;
+    background-color: #E7EBF3;
+}
+.label-name {
+
+    padding: 5px;
+
+}
