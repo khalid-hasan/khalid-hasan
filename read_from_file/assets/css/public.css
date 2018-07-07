@@ -1,0 +1,93 @@
+body {
+	background: url(http://www.passport.gov.bd/images/bg.jpg) repeat !important;
+}
+
+th {
+    text-align: center !important;
+}
+
+hr {
+    border-top: 1px solid #d5d4d4;
+}
+
+.important {
+    color: Red;
+    padding-left: 2px;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.right-border {
+    padding: 0 25px 0 25px !important;
+}
+
+.right-border-form {
+    padding: 0 25px 0 25px !important;
+    border-right: 2px dotted #eee !important;
+}
+
+.bootstrap-select:not([class*="col-"]):not([class*="form-control"]):not(.input-group-btn) {
+    width: 100%;
+}
+
+.btn.btn-default {
+    float: right;
+}
+
+.left-border {
+    border-left: 2px dotted #eee !important;
+    padding: 0 25px 0 25px !important;
+    margin-top: 60px !important;
+}
+
+.left-border-form {
+    padding: 0 25px 0 25px !important;
+    margin-top: 60px !important;
+}
+
+.left-border-form-4 {
+    padding: 0 25px 0 25px !important;
+}
+
+.panel-default 
+{
+    margin: 50px auto;
+    width: 80%;
+    background-color: #E7EBF3;
+}
+
+.title-padding {
+    padding-bottom: 20px;
+    padding-top: 30px;
+}
+
+.title-padding-extra {
+    padding-bottom: 20px;
+    padding-top: 57px;
+}
+
+.title-padding-bottom {
+    padding-bottom: 20px;
+}
+
+.btn-custom {
+    margin-right: 7px;
+}
+#error
+{
+    color: red;
+    font-weight: bold;
+}
+
+.application-id {
+    color: green;
+}
+
+.content-area {
+    padding: 35px;
+    font-size: 15px;
+}
+
+.heading {
+    padding-left: 35px;
+}
