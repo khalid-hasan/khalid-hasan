@@ -25,6 +25,7 @@ function data_sanitization($data)
 	return $data;
 }
 
+$error="";
 
 if (isset($_POST['sub_form1'])) 
 {
@@ -73,43 +74,43 @@ if (isset($_POST['sub_form1']))
 
     if (!preg_match("/^([a-zA-Z\s'-]+\.)*[a-zA-Z\s'-]+$/", $_POST['name'])) 
     {
-      $_SESSION['error'] = "Letters Only and (-,',.)";
-      header("location: form_1.php");
+      $error = "Letters Only and (-,',.)";
+      //header("location: form_1.php");
     }
     elseif (!preg_match("/^([a-zA-Z\s'-]+\.)*[a-zA-Z\s'-]+$/", $_POST['lname'])) 
     {
-      $_SESSION['error'] = "Letters Only and (-,',.)";
-      header("location: form_1.php");
+      $error = "Letters Only and (-,',.)";
+      //header("location: form_1.php");
     }
     elseif (!preg_match("/^([a-zA-Z\s'-]+\.)*[a-zA-Z\s'-]+$/", $_POST['fatherName'])) 
     {
-      $_SESSION['error'] = "Letters Only and (-,',.)";
-      header("location: form_1.php");
+      $error = "Letters Only and (-,',.)";
+      //header("location: form_1.php");
     }
     elseif (!preg_match("/^([a-zA-Z\s'-]+\.)*[a-zA-Z\s'-]+$/", $_POST['motherName'])) 
     {
-      $_SESSION['error'] = "Letters Only and (-,',.)";
-      header("location: form_1.php");
+      $error = "Letters Only and (-,',.)";
+      //header("location: form_1.php");
     }  
     elseif (!preg_match("/^[0-9]{14}$/", $_POST['birthID'])) 
     {
-      $_SESSION['error'] = "Numbers Only.";
-      header("location: form_1.php");
+      $error = "Numbers Only.";
+      //header("location: form_1.php");
     }  
     elseif (!preg_match("/^[0-9]{1,5}$/", $_POST['heightCm'])) 
     {
-      $_SESSION['error'] = "Numbers Only";
-      header("location: form_1.php");
+      $error = "Numbers Only";
+      //header("location: form_1.php");
     }  
     elseif (!preg_match("/^[0-9]{1,5}$/", $_POST['heightInch'])) 
     {
-      $_SESSION['error'] = "Numbers Only";
-      header("location: form_1.php");
+      $error = "Numbers Only";
+      //header("location: form_1.php");
     }  
     elseif (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) 
     {
-      $_SESSION['error'] = "Invalid Email";
-      header("location: form_1.php");
+      $error = "Invalid Email";
+      //header("location: form_1.php");
     }  
     else
     {
@@ -853,9 +854,9 @@ if (isset($_POST['sub_form1']))
 			            <div class="error">
 							 <?php
 
-								 if (!empty($_SESSION['error'])) 
+								 if (!empty($error)) 
 								 {
-								 	echo "<p><span id=\"error\">$_SESSION[error]</span></p>";
+								 	echo "<p><span id=\"error\">$error</span></p>";
 								 }
 
 							 ?>

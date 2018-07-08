@@ -31,6 +31,8 @@ function data_sanitization($data)
     $_SESSION['applicationID']= substr($birthID, 5).rand(10,1000);
  }
 
+$error="";
+
 if (isset($_POST['sub_form2'])) 
 {
   $_SESSION['applicantOffice']= data_sanitization($_POST['applicantOffice']);
@@ -51,28 +53,28 @@ if (isset($_POST['sub_form2']))
 
     if (!preg_match("/^([a-zA-Z\s'-]+\.)*[a-zA-Z\s'-]+$/", $_POST['emergencyContactName'])) 
     {
-      $_SESSION['error_form2'] = "Letters Only and (-,',.)";
-      header("location: form_2.php");
+      $error= "Letters Only and (-,',.)";
+      //header("location: form_2.php");
     }
     elseif (!preg_match("/^[a-zA-Z0-9]*$/", $_POST['applicantPassportNo'])) 
     {
-      $_SESSION['error_form2'] = "Letters Only and (-,',.)";
-      header("location: form_2.php");
+      $error = "Letters Only and (-,',.)";
+      //header("location: form_2.php");
     } 
     elseif (!preg_match("/^[0-9]{11}$/", $_POST['applicantOffice'])) 
     {
-      $_SESSION['error_form2'] = "Numbers Only.";
-      header("location: form_2.php");
+      $error = "Numbers Only.";
+      //header("location: form_2.php");
     }  
     elseif (!preg_match("/^[0-9]{11}$/", $_POST['applicantResidence'])) 
     {
-      $_SESSION['error_form2'] = "Numbers Only";
-      header("location: form_2.php");
+      $error = "Numbers Only";
+      //header("location: form_2.php");
     }  
     elseif (!preg_match("/^[0-9]{11}$/", $_POST['applicantMobile'])) 
     {
-      $_SESSION['error_form2'] = "Numbers Only";
-      header("location: form_2.php");
+      $error = "Numbers Only";
+      //header("location: form_2.php");
     }   
     else
     {
@@ -306,9 +308,9 @@ if (isset($_POST['sub_form2']))
                   <div class="error">
                    <?php
 
-                     if (!empty($_SESSION['error_form2'])) 
+                     if (!empty($error)) 
                      {
-                      echo "<p><span id=\"error\">$_SESSION[error_form2]</span></p>";
+                      echo "<p><span id=\"error\">$error</span></p>";
                      }
 
                    ?>

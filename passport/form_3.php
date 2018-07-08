@@ -25,6 +25,8 @@ function data_sanitization($data)
   return $data;
 }  
 
+$error="";
+
 if (isset($_POST['sub_form3'])) 
 {
   $_SESSION['paymentType']= data_sanitization($_POST['paymentType']);
@@ -39,13 +41,13 @@ if (isset($_POST['sub_form3']))
 
     if (!preg_match("/^[0-9]{1,20}$/", $_POST['receiptNo'])) 
     {
-      $_SESSION['error_form3'] = "Numbers Only.";
-      header("location: form_3.php");
+      $error = "Numbers Only.";
+      //header("location: form_3.php");
     }  
     elseif (!preg_match("/^[0-9]{1,10}$/", $_POST['paymentAmount'])) 
     {
-      $_SESSION['error_form3'] = "Numbers Only";
-      header("location: form_3.php");
+      $error = "Numbers Only";
+      //header("location: form_3.php");
     }  
     else
     {
@@ -219,9 +221,9 @@ if (isset($_POST['sub_form3']))
                 <div class="error">
                    <?php
 
-                     if (!empty($_SESSION['error_form3'])) 
+                     if (!empty($error)) 
                      {
-                      echo "<p><span id=\"error\">$_SESSION[error_form3]</span></p>";
+                      echo "<p><span id=\"error\">$error</span></p>";
                      }
 
                    ?>
